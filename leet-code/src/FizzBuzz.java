@@ -1,0 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class FizzBuzz {
+    public static void main(String[] args) {
+        System.out.println(fizzBuzz(3));
+        System.out.println(fizzBuzz(5));
+        System.out.println(fizzBuzz(15));
+    };
+
+    static List<String> fizzBuzz(int n) {
+        List<String> output = new ArrayList<>();
+        for (int i = 1; i <= n; i++) {
+            String element = String.valueOf(i);
+            if (i % 3 == 0 && i % 5 == 0) {
+                element = "FizzBuzz";
+            } else if (i % 3 == 0) {
+                element = "Fizz";
+            } else if (i % 5 == 0) {
+                element = "Buzz";
+            }
+            output.add(element);
+        }
+        return output;
+    }
+}
