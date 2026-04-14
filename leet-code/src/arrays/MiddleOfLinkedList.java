@@ -14,6 +14,7 @@ public class MiddleOfLinkedList {
             list.get(i - 1).next = list.get(i);
         }
         System.out.println(returnMiddleOfLinkedList(list.getFirst()).val);
+        System.out.println(middleNode(list.getFirst()).val);
     }
 
      static public class ListNode {
@@ -34,20 +35,18 @@ public class MiddleOfLinkedList {
             head = head.next;
             size++;
         }
-
         int middleOfList = size / 2;
-
         return list.get(middleOfList);
     }
 
     static ListNode middleNode (ListNode head) {
-        ListNode current = head;
-        ListNode next = current.next;
-        while(next != null) {
-            current = current.next;
-            next = current.next.next;
+        ListNode middle = head;
+        ListNode end = head;
+        while(end != null && end.next != null) {
+            middle = middle.next;
+            end = end.next.next;
         }
-        return current;
+        return middle;
     }
 
 
