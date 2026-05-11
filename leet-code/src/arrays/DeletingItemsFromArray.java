@@ -1,7 +1,5 @@
 package arrays;
 
-import java.util.Arrays;
-
 public class DeletingItemsFromArray {
     public static void main(String[] args) {
         int[] intArray = new int[10];

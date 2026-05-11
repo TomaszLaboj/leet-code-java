@@ -1,10 +1,14 @@
 package arrays;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CheckForIntAndItsDouble {
     public static void main(String[] args) {
 
         int[] arr = {0, 0};
         System.out.println(checkIfExists(arr));
+        System.out.println(checkIfExists2(arr));
     }
 
     public static boolean checkIfExists(int[] arr) {
@@ -17,6 +21,17 @@ public class CheckForIntAndItsDouble {
                     return true;
                 }
             }
+        }
+        return false;
+    }
+
+    public static boolean checkIfExists2(int[] arr) {
+        Set<Integer> seenNumbers = new HashSet<>();
+        for (int num : arr) {
+            if (seenNumbers.contains(num * 2) || (num % 2 == 0 && seenNumbers.contains(num / 2))) {
+                return true;
+            }
+            seenNumbers.add(num);
         }
         return false;
     }

@@ -1,13 +1,15 @@
 package arrays;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 
 // given array of numbers and a target numbers, find 2 numbers in the array which when added together give the target, retrun the index numbers of the nubmers
 class TwoSum {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(twoSum(new int[]{2,7,11,15}, 4)));
+        System.out.println(Arrays.toString(twoSum2(new int[]{2,5, 5}, 6)));
     }
 
     static public int[] twoSum(int[] nums, int target) {
@@ -20,6 +22,21 @@ class TwoSum {
                     indices[1] = j;
                     found = true;
                 }
+            }
+        }
+        return indices;
+    }
+
+    static int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> numsMap = new HashMap<>();
+        int[] indices = new int[2];
+        for (int i = 0; i < nums.length; i++) {
+            if (numsMap.containsKey(target - nums[i])) {
+                indices[0] = Math.min(i, numsMap.get(target - nums[i]));
+                indices[1] = Math.max(i, numsMap.get(target - nums[i]));
+                break;
+            } else {
+                numsMap.put(nums[i], i);
             }
         }
         return indices;
